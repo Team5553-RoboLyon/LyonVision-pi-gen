@@ -1,0 +1,22 @@
+dist: bionic
+language: minimal
+
+branches:
+  only:
+    - master
+
+cache:
+  directories:
+    - cache
+
+script:
+  # output errors to stdout because qemu syscalls annoying
+- travis_wait 80 sudo ./build-docker.sh 2>&1
+
+deploy:
+  provider: releases
+  api_key: $GITHUB_KEY
+  name: Build n°${TRAVIS_BUILD_NUMBER} - $(date +'%d.%m.%Y')
+  file: "deploy/*.zip"
+  file_glob: true
+  skip_cleanup: true
