@@ -1,6 +1,11 @@
-# pi-gen
+# LyonVision-pi-gen
 
-_Tool used to create the raspberrypi.org Raspbian images_
+_Tool used to create the LyonVision Raspbian images_
+
+This is a fork from the original [RPi-Distro/pi-gen](https://github.com/RPi-Distro/pi-gen)
+repository. It is customized to run a visionProgram at boot time. This image is to be used
+with the [Vision-Tracking-Format](https://github.com/nathanmutin/Vision-Tracking-Format)
+template repository.
 
 
 ## Dependencies
@@ -29,7 +34,7 @@ environment variables.
 
 The following environment variables are supported:
 
- * `IMG_NAME` **required** (Default: unset)
+ * `IMG_NAME` **required** (Default: LyonVision)
 
    The name of the image to build with the current stage directories.  Setting
    `IMG_NAME=Raspbian` is logical for an unmodified RPi-Distro/pi-gen build,
@@ -78,11 +83,11 @@ The following environment variables are supported:
    Setting to '1' enables the QEMU mode - creating an image that can be mounted via QEMU for an emulated
    environment. These images include "-qemu" in the image file name.
 
- * `FIRST_USER_NAME` (Default: "pi" )
+ * `FIRST_USER_NAME` (Default: "vision" )
 
    Username for the first user
 
- * `FIRST_USER_PASS` (Default: "raspberry")
+ * `FIRST_USER_PASS` (Default: "lyon")
 
    Password for the first user
 
@@ -241,19 +246,12 @@ maintenance and allows for more easy customization.
    you were looking for something between truly minimal and Raspbian-Lite,
    here's where you start trimming.
 
- - **Stage 3** - desktop system.  Here's where you get the full desktop system
-   with X11 and LXDE, web browsers, git for development, Raspbian custom UI
-   enhancements, etc.  This is a base desktop system, with some development
-   tools installed.
-
- - **Stage 4** - Raspbian system meant to fit on a 4GB card.  More development
-   tools, an email client, learning tools like Scratch, specialized packages
-   like sonic-pi, system documentation, office productivity, etc.  This is the
-   stage that installs all of the things that make Raspbian friendly to new
-   users.
-
- - **Stage 5** - The official Raspbian Desktop image. Right now only adds
-   Mathematica.
+ - **Stage 3** - lyon vision system.  Here's where the build is customized
+   to allow vision tracking to run on the raspberry. A systemd service is
+   created. It will permit the system to start the visionProgram at boot time.
+   This service, when launched, run the /home/vision/visionProgram program.
+   This stage also install libnss-mdns package and enable password-less sudo
+   for everyone.
 
 ### Stage specification
 
