@@ -4,7 +4,7 @@ _Tool used to create the LyonVision Raspbian images_
 
 This is a fork from the original [RPi-Distro/pi-gen](https://github.com/RPi-Distro/pi-gen)
 repository. It is customized to run a visionProgram at boot time. This image is to be used
-with the [Vision-Tracking-Format](https://github.com/nathanmutin/Vision-Tracking-Format)
+with the [LyonVision-Template](https://github.com/Team5553-RoboLyon/LyonVision-Template)
 template repository.
 
 
