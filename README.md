@@ -1,6 +1,9 @@
 # LyonVision-pi-gen
 
-_Tool used to create the LyonVision Raspbian images_
+
+[![Build Status](https://travis-ci.com/Team5553-RoboLyon/LyonVision-pi-gen.svg?branch=master)](https://travis-ci.com/Team5553-RoboLyon/LyonVision-pi-gen)
+
+_Tool used to create the LyonVision Raspbian image_
 
 This is a fork from the original [RPi-Distro/pi-gen](https://github.com/RPi-Distro/pi-gen)
 repository. It is customized to run a visionProgram at boot time. This image is to be used
