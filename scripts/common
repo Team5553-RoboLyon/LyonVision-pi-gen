@@ -99,4 +99,3 @@ update_issue() {
 	echo -e "${IMG_NAME} built on ${IMG_DATE}\nGenerated using ${PI_GEN}, ${PI_GEN_REPO}, ${GIT_HASH}, ${1}" > "${ROOTFS_DIR}/etc/rpi-issue"
 }
 export -f update_issue
-
