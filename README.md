@@ -70,7 +70,7 @@ The following environment variables are supported:
    be built and cached.  Note, `WORK_DIR` stores a complete copy of the target
    system for each build stage, amounting to tens of gigabytes in the case of
    Raspbian.
-   
+
    **CAUTION**: If your working directory is on an NTFS partition you probably won't be able to build. Make sure this is a proper Linux filesystem.
 
  * `DEPLOY_DIR`  (Default: `"$BASE_DIR/deploy"`)
@@ -90,17 +90,32 @@ The following environment variables are supported:
 
    Default system locale.
 
+ * `HOSTNAME` (Default: "lyonvision" )
+
+   Setting the hostname to the specified value.
+
  * `KEYBOARD_KEYMAP` (Default: "gb" )
 
    Default keyboard keymap.
+
+   To get the current value from a running system, run `debconf-show
+   keyboard-configuration` and look at the
+   `keyboard-configuration/xkb-keymap` value.
 
  * `KEYBOARD_LAYOUT` (Default: "English (UK)" )
 
    Default keyboard layout.
 
+   To get the current value from a running system, run `debconf-show
+   keyboard-configuration` and look at the
+   `keyboard-configuration/variant` value.
+
  * `TIMEZONE_DEFAULT` (Default: "Europe/London" )
 
    Default keyboard layout.
+
+   To get the current value from a running system, look in
+   `/etc/timezone`.
 
  * `FIRST_USER_NAME` (Default: "vision" )
 
@@ -114,7 +129,7 @@ The following environment variables are supported:
 
    If these are set, they are use to configure `wpa_supplicant.conf`, so that the raspberry pi can automatically connect to a wifi network on first boot.
 
- * `ENABLE_SSH` (Default: `0`)
+ * `ENABLE_SSH` (Default: `1`)
 
    Setting to `1` will enable ssh server for remote log in. Note that if you are using a common password such as the defaults there is a high risk of attackers taking over you RaspberryPi.
 
@@ -271,6 +286,15 @@ maintenance and allows for more easy customization.
    This service, when launched, run the /home/vision/visionProgram program.
    This stage also install libnss-mdns package and enable password-less sudo
    for everyone.
+
+ - **Stage 4** - Raspbian system meant to fit on a 4GB card.  More development
+   tools, an email client, learning tools like Scratch, specialized packages
+   like sonic-pi, system documentation, office productivity, etc.  This is the
+   stage that installs all of the things that make Raspbian friendly to new
+   users.
+
+ - **Stage 5** - The official Raspbian Desktop image. Right now only adds
+   Mathematica.
 
 ### Stage specification
 
