@@ -287,15 +287,6 @@ maintenance and allows for more easy customization.
    This stage also install libnss-mdns package and enable password-less sudo
    for everyone.
 
- - **Stage 4** - Raspbian system meant to fit on a 4GB card.  More development
-   tools, an email client, learning tools like Scratch, specialized packages
-   like sonic-pi, system documentation, office productivity, etc.  This is the
-   stage that installs all of the things that make Raspbian friendly to new
-   users.
-
- - **Stage 5** - The official Raspbian Desktop image. Right now only adds
-   Mathematica.
-
 ### Stage specification
 
 If you wish to build up to a specified stage (such as building up to stage 2

@@ -4,4 +4,4 @@ PI_GEN=LyonVision-pi-gen
 PI_GEN_REPO=https://github.com/Team5553-RoboLyon/LyonVision-pi-gen
 FIRST_USER_NAME='vision'
 FIRST_USER_PASS='lyon'
-HOSTNAME=lyonvision
+HOSTNAME='lyonvision'
